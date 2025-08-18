@@ -5,6 +5,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>paw2025Q2</name>
+  <url>http://pawserver.it.itba.edu.ar/paw-2025b-15/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
