@@ -13,4 +13,9 @@ public class AnotherUserServiceImpl implements UserService {
     public Optional<User> findById(long id) {
         return Optional.of(new User(id, "PAW"));
     }
+
+    @Override
+    public User create(String username, String password) {
+        return new User(1, username);
+    }
 }
