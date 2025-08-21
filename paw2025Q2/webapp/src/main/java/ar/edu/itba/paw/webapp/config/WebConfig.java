@@ -45,4 +45,9 @@ public class WebConfig implements WebMvcConfigurer {
         messageSource.setCacheSeconds(5);
         return messageSource;
     }
+
+    @Override
+    public void configureContentNegotiation(org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer configurer) {
+        configurer.defaultContentType(org.springframework.http.MediaType.TEXT_HTML);
+    }
 }

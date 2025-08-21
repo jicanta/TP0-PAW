@@ -42,7 +42,6 @@ public class HelloWorldController {
 //    }
     @RequestMapping("/")
     public ModelAndView index(@ModelAttribute("registerForm") final UserForm form) {
-//        return new ModelAndView("index");
         final ModelAndView mav = new ModelAndView("index");
         mav.addObject("name", us.findById(1).get());
         mav.addObject("itemName", "Lavarropas");
@@ -53,20 +52,30 @@ public class HelloWorldController {
         mav.addObject("itemDate2","20/08/2025");
         return mav;
     }
-    @RequestMapping(value = "/create", method = { RequestMethod.POST })
-    public ModelAndView create(@Valid @ModelAttribute("registerForm") final UserForm
-                                       form, final BindingResult errors) {
-        if (errors.hasErrors()) {
-            return index(form);
-        }
+
+    @RequestMapping(
+            value = "/create",
+            method = { RequestMethod.POST }
+    )
+    public ModelAndView create(
+            @Valid @ModelAttribute("registerForm") final UserForm form,
+            final BindingResult errors
+    ) {
+        if (errors.hasErrors()) return index(form);
+
         final User u = us.create(form.getUsername(), form.getPassword());
         return new ModelAndView("redirect:/user?userId=" + u.getId());
     }
+
     @ModelAttribute("userId")
     public Integer loggedUser(final HttpSession session) {
         return (Integer) session.getAttribute(LOGGED_USER_ID);
     }
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+
+    @RequestMapping(
+            value = "/user",
+            method = RequestMethod.GET
+    )
     public ModelAndView getUser(@RequestParam("userId") int userId) {
         final ModelAndView mav = new ModelAndView("users"); // JSP users.jsp
         mav.addObject("user", us.findById(userId).orElse(null));

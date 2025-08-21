@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="paw" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -23,9 +24,9 @@
 <paw:item-card name="${itemName2}" price="${itemPrice2}" date="${itemDate2}" />
 
 <paw:text variant="h3" text="Alert" />
-<paw:alert text="Informacion basica." type="info"/>
-<paw:alert text="Guardado con exito!" type="success"/>
-<paw:alert text="Atencion: faltan campos obligatorios." type="warning"/>
+<paw:alert text="Información básica." type="info"/>
+<paw:alert text="¡Guardado con éxito!" type="success"/>
+<paw:alert text="¡Atención: faltan campos obligatorios!" type="warning"/>
 <paw:alert text="Error al guardar." type="danger"/>
 
 <h2>Register</h2>

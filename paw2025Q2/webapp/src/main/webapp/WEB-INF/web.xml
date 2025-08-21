@@ -5,11 +5,46 @@
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <display-name>PAW components application</display-name>
 
+  <filter>
+    <filter-name>encoding-filter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>TRUE</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceRequestEncoding</param-name>
+      <param-value>TRUE</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceResponseEncoding</param-name>
+      <param-value>TRUE</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding-filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+
   <context-param>
     <param-name>contextClass</param-name>
     <param-value>
       org.springframework.web.context.support.AnnotationConfigWebApplicationContext
     </param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.servlet.jsp.jstl.fmt.request.charset</param-name>
+    <param-value>UTF-8</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+    <param-value>en</param-value>
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -31,6 +66,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
       <param-value>
         org.springframework.web.context.support.AnnotationConfigWebApplicationContext
       </param-value>
+    </init-param>
+    <init-param>
+      <param-name>javax.servlet.jsp.jstl.fmt.request.charset</param-name>
+      <param-value>UTF-8</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
